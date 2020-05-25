@@ -1,7 +1,7 @@
 <?php
+// Your code here!
 function internationalNumberTowords($num)
 {
-
 $ones = array(
 0 =>"ZERO",
 1 => "ONE",
@@ -57,8 +57,9 @@ foreach($whole_arr as $key => $i){
 while(substr($i,0,1)=="0")
 		$i=substr($i,1,5);
 if($i < 20){ 
-/* echo "getting:".$i; */
-$rettxt .= $ones[$i]; 
+ if($i){
+     $rettxt .= $ones[$i]; 
+ }
 }elseif($i < 100){ 
 if(substr($i,0,1)!="0")  $rettxt .= $tens[substr($i,0,1)]; 
 if(substr($i,1,1)!="0") $rettxt .= " ".$ones[substr($i,1,1)]; 
@@ -83,7 +84,9 @@ $rettxt .= " ".$ones[substr($decnum,1,1)];
 return $rettxt;
 }
 
-echo internationalNumberTowords("$num");
+echo internationalNumberTowords("167898.98");
+
 
 ?>
+
 execution time: 0.3sec
